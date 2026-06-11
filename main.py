@@ -3,12 +3,14 @@ import pandas as pd
 # Read CSV
 df = pd.read_csv("sales.csv")
 
-print(df.head())
+df["Revenue"] = df["Quantity"] * df["Price"]
 
-print()
+total_revenue = df["Revenue"].sum()
+total_quantity = df["Quantity"].sum()
+total_sales = len(df)
+average_price = df["Price"].mean()
 
-print(df.info())
-
-print()
-
-print(df.describe())
+print(f"Total Revenue: R$ {total_revenue:.2f}")
+print(f"Total Units Sold: {total_quantity}")
+print(f"Total Sales: {total_sales}")
+print(f"Average Price: R$ {average_price:.2f}")
