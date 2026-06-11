@@ -33,4 +33,22 @@ print()
 print("Top 5 Products by Revenue:")
 print(top5)
 
+print()
+print("\nMissing Values:")
+print(df.isnull().sum())
+
+duplicates = df.duplicated().sum()
+print(f"\nDuplicate Rows: {duplicates}")
+
+print()
+negative_prices = df[df["Price"] < 0]
+print("\nNegative Prices: ")
+print(negative_prices)
+
+print()
+negative_quantity = df[df["Quantity"] < 0]
+print("\nNegative Quantities:")
+print(negative_quantity)
+
 print("=" * 40)
+
