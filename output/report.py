@@ -1,3 +1,6 @@
+import os
+import pandas as pd
+
 def print_report(metrics: dict):
 
     print("=" * 40)
@@ -21,3 +24,19 @@ def print_report(metrics: dict):
     print(metrics["top5"])
 
     print("=" * 40)
+
+def export_report(df: pd.DataFrame) -> None:
+
+    os.makedirs("output", exist_ok=True)
+
+    df.to_csv(
+        "output/sales_report.csv",
+        index=False
+    )
+
+    df.to_excel(
+        "output/sales_report.xlsx",
+        index=False
+    )
+
+    print('\nReports exported successfully!')
